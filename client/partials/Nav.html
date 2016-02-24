@@ -1,0 +1,27 @@
+<template name="Nav">
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        View Country Profiles <span class="caret"></span>
+      </a>
+        <ul class="dropdown-menu">
+          {{#each countryList}}
+            <li><a href="/country-profile/{{this}}">{{this}}</a></li>
+          {{/each}}
+        </ul>
+      </li>
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        View Indicator Comparison <span class="caret"></span>
+      </a>
+        <ul class="dropdown-menu">
+          {{#each indicatorGroups}}
+            <li><a href="/indicator-group/{{this}}">{{this}}</a></li>
+          {{/each}}
+        </ul>
+      </li>
+      <button type="button" class="btn btn-primary ">Edit</button>  <!-- Show only for on Country Profile page for logged in users -->
+    </ul>
+  </div>
+</template>
