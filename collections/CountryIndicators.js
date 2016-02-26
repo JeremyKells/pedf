@@ -29,14 +29,32 @@ GenderSplitSchema = new SimpleSchema({
   },
 })
 
+LevelSplitSchema = new SimpleSchema({
+  primary: {
+    type: GenderSplitSchema,
+    optional: true,
+  },
+  secondary: {
+    type: GenderSplitSchema,
+    optional: true,
+
+  },
+  tertiary: {
+    type: GenderSplitSchema,
+    optional: true,
+  },
+})
+
 ECCESchema = new SimpleSchema({
   Net_Enrolment_Ratio: {
     label: "Net Enrolment Ratio",
     type: GenderSplitSchema,
+    optional: true,
   },
   Gross_Enrolment_Ratio: {
     label: "Gross Enrolment Ratio",
     type: GenderSplitSchema,
+    optional: true,
   },
   Student_Teacher_Ratio: {
     label: "Student/Teacher Ratio",
@@ -53,16 +71,31 @@ ECCESchema = new SimpleSchema({
   Implementation_of_quality_ECCE_curriculum: {
     label: "Implementation of quality ECCE curriculum",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
   Existence_of_National_ECCE_Policy_and_Planning_Framework: {
     label: "Existence of National ECCE Policy and Planning Framework",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
   EMIS_inclusive_of_ECCE_data: {
     label: "EMIS inclusive of ECCE data",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   }
 });
@@ -70,31 +103,38 @@ ECCESchema = new SimpleSchema({
 FormalEducationSchema = new SimpleSchema({
   Net_enrolment_ratio: {
     label: "Net enrolment ratio (NER)",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Gross_enrolment_ratio: {
     label: "Gross enrolment ratio (GER)",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Percentage_new_entrance_to_1st_year_primary_with_ecce_experience: {
     label: "Percentage new entrance to 1st year primary with ecce experience",
     type: GenderSplitSchema,
+    optional: true,
   },
   Repetition_rate: {
     label: "Repetition rate (RR)",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Drop_out_rate: {
     label: "Drop-out rate (DR)",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Promotion_rate: {
     label: "Promotion rate (PR)",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Transition_rate_primary_secondary: {
     label: "Transition rate (primary/secondary)",
     type: GenderSplitSchema,
+    optional: true,
   },
   Percentage_schools_with_effective_access_to_IT: {
     label: "Percentage schools with effective access to IT",
@@ -104,15 +144,18 @@ FormalEducationSchema = new SimpleSchema({
   },
   Percentage_out_of_school_children_returning_to_formal_schooling: {
     label: "Percentage out-of-school children returning to formal schooling",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Literacy_rate: {
     label: "Literacy rate",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Numeracy_rate: {
     label: "Numeracy rate",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Student_teacher_ratio: {
     label: "Student teacher ratio (STR)",
@@ -141,6 +184,7 @@ FormalEducationSchema = new SimpleSchema({
   Percentage_school_leavers_leaving_with_at_least_a_national_or_regional_qualifications: {
     label: "Percentage school leavers leaving with at least a national or regional qualifications",
     type: GenderSplitSchema,
+    optional: true,
   },
   Frequency_of_curriculum_review: {
     label: "Frequency of curriculum review (in years)",
@@ -151,11 +195,21 @@ FormalEducationSchema = new SimpleSchema({
   Compulsory_education_policy_developed_and_implemented: {
       label: "Compulsory education policy developed and implemented",
       type: Boolean,
+      autoform: {
+        afFieldInput: {
+          type: "boolean-radios"
+        }
+      },
       optional: true,
     },
   Language_policy_developed: {
     label: "Language policy developed",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
 })
@@ -164,6 +218,7 @@ TVETSchema = new SimpleSchema({
   Gross_enrolment_ratio: {
     label: "Gross enrolment ratio in TVET programs (VGER) – ISCED2",
     type: GenderSplitSchema,
+    optional: true,
   },
   Percentage_TVET_training_providers_registered_with_NAA: {
     label: "Percentage TVET training providers registered with National Accreditation Authority",
@@ -192,10 +247,12 @@ TVETSchema = new SimpleSchema({
   Number_of_graduates_with_national_TVET_qualifications: {
     label: "Number of graduates with national TVET qualifications",
     type: GenderSplitSchema,
+    optional: true,
   },
   Number_of_TVET_graduates_who_are_gainfully_employed: {
     label: "Number of TVET graduates who are gainfully employed",
     type: GenderSplitSchema,
+    optional: true,
   },
   Number_of_industry_stakeholders_engaged: {
     label: "Number of industry stakeholders/employers engaged in development of policies for skills development",
@@ -209,10 +266,12 @@ NFESchema = new SimpleSchema({
   Adult_literacy_rate: {
     label: "Adult literacy rate (ALR)",
     type: GenderSplitSchema,
+    optional: true,
   },
   Participation_Rate: {
     label: "Participation Rate",
     type: GenderSplitSchema,
+    optional: true,
   },
   Participants_instructor_ratio: {
     label: "Participants/instructor ratio",
@@ -223,6 +282,11 @@ NFESchema = new SimpleSchema({
   Existence_of_NFE_policy: {
     label: "Existence of NFE policy",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
   Percentage_of_NFE_providers_promoting_gender_equality: {
@@ -240,6 +304,11 @@ NFESchema = new SimpleSchema({
   Existence_of_pathways: {
     label: "Existence of pathways between formal, non-formal and informal education",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
 })
@@ -247,7 +316,8 @@ NFESchema = new SimpleSchema({
 TeacherSchema = new SimpleSchema({
   Percentage_of_Qualified_Untrained_teachers: {
     label: "Percentage of Qualified/Untrained teachers as per national minimum standards",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Existence_of_beginning_teacher_induction_programs: {
     label: "Existence of beginning teacher induction/mentoring programs in relation to teacher professional standards",
@@ -257,15 +327,18 @@ TeacherSchema = new SimpleSchema({
   },
   Percentage_teachers_undertook_professional_development: {
     label: "Percentage teachers/school principals that undertook targeted professional development within the past 2 years",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Percentage_teachers_assessed_as_requiring_additional_advice: {
     label: "Percentage teachers assessed as requiring additional advice or guidance under the teacher performance management system",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Percentage_teachers_teaching_outside_areas_of_specialization: {
     label: "Percentage teachers teaching outside areas or levels of curriculum specialization",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Percentage_foreign_staff: {
     label: "Percentage teaching positions filled by staff from outside the country",
@@ -281,15 +354,22 @@ TeacherSchema = new SimpleSchema({
   },
   Percentage_teachers_leaving_before_retirement_age: {
     label: "Percentage teachers leaving the profession prior to retirement age",
-    type: GenderSplitSchema,
+    type: LevelSplitSchema,
+    optional: true,
   },
   Percentage_ECCE_teachers_under_government_employment: {
     label: "Percentage ECCE teachers under government employment",
     type: GenderSplitSchema,
+    optional: true,
   },
   Mandatory_Disability_Inclusive_Education: {
     label: "Teacher training curriculum that includes mandatory course on Disability-Inclusive Education",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
 });
@@ -298,15 +378,26 @@ SGASchema = new SimpleSchema({
   Existence_of_mid_term_strategy_to_ensure_achievement_of_sector_plans: {
     label: "Existence of mid-term strategy to ensure achievement of sector plans",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
   Percentage_policy_and_planning_staff_involved_in_ongoing_training: {
     label: "Percentage policy and planning staff involved in ongoing training and professional development",
     type: GenderSplitSchema,
+    optional: true,
   },
   Clear_outline_of_obligations_by_donors_executing_agencies: {
     label: "Clear outline of obligations by donors/executing agencies in line with individual arrangements and international declarations",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
   Percentage_national_budget_allocated_to_education: {
@@ -324,6 +415,11 @@ SGASchema = new SimpleSchema({
   Existence_of_EMIS: {
     label: "Existence of EMIS that is able to support evidence-based decision making and planning for improvement of education systems",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
   Percentage_qualified_personnel_to_operate_EMIS: {
@@ -335,21 +431,41 @@ SGASchema = new SimpleSchema({
   PEDF_aligned_with_national_ME_system: {
     label: "PEDF M&E framework aligned with national M&E system",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
   National_annual_education_statistics_report: {
     label: "National annual education statistics report published and disseminated",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
   Existence_of_communication_strategy_to_support_education_outcomes: {
     label: "Existence of communication strategy and agreements with other agencies to support education outcomes",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
   Reduction_in_irregularities_to_assure_transparency_and_accountability: {
     label: "Reduction in irregularities to assure transparency and accountability",
     type: Boolean,
+    autoform: {
+      afFieldInput: {
+        type: "boolean-radios"
+      }
+    },
     optional: true,
   },
 });
@@ -364,22 +480,28 @@ CountryIndicatorsSchema = new SimpleSchema({
     max: 2020,
   },
   ecce: {
-    type: ECCESchema
+    type: ECCESchema,
+    optional: true,
   },
   formalEducation: {
-    type: FormalEducationSchema
+    type: FormalEducationSchema,
+    optional: true,
   },
   tvet: {
-    type: TVETSchema
+    type: TVETSchema,
+    optional: true,
   },
   nfe: {
-    type: NFESchema
+    type: NFESchema,
+    optional: true,
   },
   teachers: {
-    type: TeacherSchema
+    type: TeacherSchema,
+    optional: true,
   },
   sga: {
-    type: SGASchema
+    type: SGASchema,
+    optional: true,
   }
 });
 

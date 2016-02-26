@@ -21,7 +21,15 @@
           {{/each}}
         </ul>
       </li>
-      <button type="button" class="btn btn-primary ">Edit</button>  <!-- Show only for on Country Profile page for logged in users -->
+      {{#if currentUser}}
+        <button id="edit-mode" type="button" class="btn btn-primary ">
+          {{#unless $.Session.get 'edit-mode'}}
+            Edit
+          {{else}}
+            Finish Editing
+          {{/unless}}
+        </button>
+      {{/if}}
     </ul>
   </div>
 </template>

@@ -36,6 +36,7 @@ erasaur:meteor-lodash@3.10.1_1
 es5-shim@4.1.14
 fastclick@1.0.7
 fortawesome:fontawesome@4.4.0
+fourseven:scss@3.4.1
 geojson-utils@1.0.4
 gwendall:auth-client-callbacks@0.1.0
 gwendall:body-events@0.1.6
@@ -74,6 +75,7 @@ meteortoys:sub@2.0.0
 meteortoys:throttle@2.0.0
 meteortoys:toykit@2.1.2
 meteortoys:toypro@2.0.0
+mfpierre:chartist-js@1.6.1
 minifiers@1.1.7
 minimongo@1.0.10
 mobile-experience@1.0.1
@@ -88,6 +90,7 @@ npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
 promise@0.5.1
+rafaelhdr:google-charts@0.0.2
 raix:handlebar-helpers@0.2.5
 random@1.0.5
 rate-limit@1.0.0

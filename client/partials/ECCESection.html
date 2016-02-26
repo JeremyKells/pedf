@@ -1,0 +1,86 @@
+<template name="ECCESection">
+  {{#AccordianPanel id="ECCE" heading="Early Childhood Care and Education"}}
+
+    <div class="panel">
+      <h1>Net Enrolment Ratio</h1>
+
+      <div
+        class="definition btn btn-large btn-success popover-link"
+        data-placement="left"
+        data-html=true
+        data-trigger="hover"
+        data-content="Enrolment of the official age-group for the formal education sector (primary and secondary) education expressed as a percentage of the corresponding population."
+        data-original-title="Net Enrolment Ratio">
+        Definition
+      </div>
+
+      <!-- <table class="tftable">
+      <tr>
+        <th>Year</th>
+        <th>Female</th>
+        <th>Male</th>
+        <th>Total</th>
+      </tr>
+      {{#each data}}
+        <tr>
+          <td>{{year}}</td>
+          <td>{{ecce.Net_Enrolment_Ratio.female}}</td>
+          <td>{{ecce.Net_Enrolment_Ratio.male}}</td>
+          <td>{{ecce.Net_Enrolment_Ratio.total}}</td>
+        </tr>
+      {{/each}}
+    </table>
+    <br> -->
+      <table class="tftable">
+        <tr>
+          <th>Year</th>
+          {{#each data}}
+            <th>{{year}}</th>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Female</th>
+          {{#each data}}
+            <td>{{ecce.Net_Enrolment_Ratio.female}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Male</th>
+          {{#each data}}
+            <td>{{ecce.Net_Enrolment_Ratio.male}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Total</th>
+          {{#each data}}
+            <td>{{ecce.Net_Enrolment_Ratio.total}}</td>
+          {{/each}}
+        </tr>
+      </table>
+
+      <div id="chart1" width="100%"></div>
+    </div>
+
+<div class="panel">
+    <h1>Gross Enrolment Ratio</h1>
+
+    <div class="ct-chart ct-golden-section" id="chart2"></div>
+    <div class="ct-chart ct-golden-section" id="chart3"></div>
+
+
+</div>
+
+    <div class="panel"><h1>Student/Teacher Ratio</h1></div>
+
+    <div class="panel"><h1>Percentage of ECCE Centres which meet National Minimum Quality Standards</h1></div>
+
+    <div class="panel"><h1>Implementation of quality ECCE curriculum</h1></div>
+
+    <div class="panel"><h1>Existence of National ECCE Policy and Planning Framework</h1></div>
+
+    <div class="panel"><h1>EMIS inclusive of ECCE data</h1></div>
+
+    <pre>{{dataStr}}</pre>
+
+  {{/AccordianPanel}}
+</template>

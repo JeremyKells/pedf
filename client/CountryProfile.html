@@ -1,117 +1,61 @@
+
+<template name="FESection">
+  {{#AccordianPanel id="FE" heading="Formal Education"}}
+    Formal Education
+  {{/AccordianPanel}}
+</template>
+
+<template name="TVETSection">
+  {{#AccordianPanel id="TVET" heading="Technical vocational education and training"}}
+    TVET
+  {{/AccordianPanel}}
+</template>
+
+<template name="NFESection">
+  {{#AccordianPanel id="NFE" heading="Non Formal Education"}}
+    NFE
+  {{/AccordianPanel}}
+</template>
+
+<template name="TeacherSection">
+  {{#AccordianPanel id="TD" heading="Teacher Development"}}
+    Teacher Development
+  {{/AccordianPanel}}
+</template>
+
+<template name="SGASection">
+  {{#AccordianPanel id="SGA" heading="System Governance and Administration"}}
+    SGA
+  {{/AccordianPanel}}
+</template>
+
+<template name="Profile">
+  <div class="panel-group" id="accordion">
+  {{> ECCESection}}
+  {{> FESection}}
+  {{> TVETSection}}
+  {{> NFESection}}
+  {{> TeacherSection}}
+  {{> SGASection}}
+  </div>
+
+</template>
+
+
+
+
+
 <template name="CountryProfile">
   <div class="container">
     <h2>Country Profile for {{data.country}}</h2>
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{yearSelected}}
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        {{#each years}}
-          <li role="presentation"><a class='year-menuitem' role="menuitem" tabindex="-1" href="#">{{this}}</a></li>
-        {{/each}}
-      </ul>
-    </div>
-    {{#autoForm collection="CountryIndicators" id="editIndicatorsForm" type=typeHelper doc=docHelper }}
-      <div class="panel-group" id="accordion">
-        {{#formSection id="ECCE" heading="Early Childhood Care and Education"}}
-          {{> afQuickField name='ecce.Net_Enrolment_Ratio'}}
-          {{> afQuickField name='ecce.Gross_Enrolment_Ratio'}}
-          {{> afQuickField name='ecce.Student_Teacher_Ratio'}}
-          {{> afQuickField name='ecce.Number_ECCE_Centres_which_meet_National_Minimum_Quality_Standards'}}
-          {{> afQuickField name='ecce.Implementation_of_quality_ECCE_curriculum'}}
-          {{> afQuickField name='ecce.Existence_of_National_ECCE_Policy_and_Planning_Framework'}}
-          {{> afQuickField name='ecce.EMIS_inclusive_of_ECCE_data'}}
-        {{/formSection}}
+    {{> YearSelector}}
 
-        {{#formSection id="FE" heading="Formal Education"}}
-          {{> afQuickField name='formalEducation.Net_enrolment_ratio'}}
-          {{> afQuickField name='formalEducation.Gross_enrolment_ratio'}}
-          {{> afQuickField name='formalEducation.Percentage_new_entrance_to_1st_year_primary_with_ecce_experience'}}
-          {{> afQuickField name='formalEducation.Repetition_rate'}}
-          {{> afQuickField name='formalEducation.Drop_out_rate'}}
-          {{> afQuickField name='formalEducation.Promotion_rate'}}
-          {{> afQuickField name='formalEducation.Transition_rate_primary_secondary'}}
-          {{> afQuickField name='formalEducation.Percentage_schools_with_effective_access_to_IT'}}
-          {{> afQuickField name='formalEducation.Percentage_out_of_school_children_returning_to_formal_schooling'}}
-          {{> afQuickField name='formalEducation.Literacy_rate'}}
-          {{> afQuickField name='formalEducation.Numeracy_rate'}}
-          {{> afQuickField name='formalEducation.Student_teacher_ratio'}}
-          {{> afQuickField name='formalEducation.Student_classroom_ratio'}}
-          {{> afQuickField name='formalEducation.Student_Computer_Ratio'}}
-          {{> afQuickField name='formalEducation.Percentage_schools_with_clean_water_and_sanitation'}}
-          {{> afQuickField name='formalEducation.Percentage_school_leavers_leaving_with_at_least_a_national_or_regional_qualifications'}}
-          {{> afQuickField name='formalEducation.Frequency_of_curriculum_review'}}
-          {{> afQuickField name='formalEducation.Compulsory_education_policy_developed_and_implemented'}}
-          {{> afQuickField name='formalEducation.Language_policy_developed'}}
-        {{/formSection}}
-
-        {{#formSection id="TVET" heading="Technical vocational education and training (TVET)"}}
-          {{> afQuickField name='tvet.Gross_enrolment_ratio'}}
-          {{> afQuickField name='tvet.Percentage_TVET_training_providers_registered_with_NAA'}}
-          {{> afQuickField name='tvet.Percentage_TVET_courses_professionally_assessed_validated'}}
-          {{> afQuickField name='tvet.Number_of_courses_with_strong_industry_links'}}
-          {{> afQuickField name='tvet.Number_of_TVET_courses_that_are_competency_based'}}
-          {{> afQuickField name='tvet.Number_of_graduates_with_national_TVET_qualifications'}}
-          {{> afQuickField name='tvet.Number_of_TVET_graduates_who_are_gainfully_employed'}}
-          {{> afQuickField name='tvet.Number_of_industry_stakeholders_engaged'}}
-        {{/formSection}}
-
-        {{#formSection id= "NFE" heading="Non-formal Education (NFE)"}}
-          {{> afQuickField name='nfe.Adult_literacy_rate'}}
-          {{> afQuickField name='nfe.Participation_Rate'}}
-          {{> afQuickField name='nfe.Participants_instructor_ratio'}}
-          {{> afQuickField name='nfe.Existence_of_NFE_policy'}}
-          {{> afQuickField name='nfe.Percentage_of_NFE_providers_promoting_gender_equality'}}
-          {{> afQuickField name='nfe.Number_of_NGOs_delivering_NFE_programs'}}
-          {{> afQuickField name='nfe.Existence_of_pathways'}}
-        {{/formSection}}
-
-        {{#formSection id="TD" heading="Teacher Development"}}
-          {{> afQuickField name='teachers.Percentage_of_Qualified_Untrained_teachers'}}
-          {{> afQuickField name='teachers.Existence_of_beginning_teacher_induction_programs'}}
-          {{> afQuickField name='teachers.Percentage_teachers_undertook_professional_development'}}
-          {{> afQuickField name='teachers.Percentage_teachers_assessed_as_requiring_additional_advice'}}
-          {{> afQuickField name='teachers.Percentage_teachers_teaching_outside_areas_of_specialization'}}
-          {{> afQuickField name='teachers.Percentage_foreign_staff'}}
-          {{> afQuickField name='teachers.Percentage_teaching_positions_unfilled'}}
-          {{> afQuickField name='teachers.Percentage_teachers_leaving_before_retirement_age'}}
-          {{> afQuickField name='teachers.Percentage_ECCE_teachers_under_government_employment'}}
-          {{> afQuickField name='teachers.Mandatory_Disability_Inclusive_Education'}}
-        {{/formSection}}
-
-        {{#formSection id="SGA" heading="System Governance and Administration"}}
-          {{> afQuickField name='sga.Existence_of_mid_term_strategy_to_ensure_achievement_of_sector_plans'}}
-          {{> afQuickField name='sga.Percentage_policy_and_planning_staff_involved_in_ongoing_training'}}
-          {{> afQuickField name='sga.Clear_outline_of_obligations_by_donors_executing_agencies'}}
-          {{> afQuickField name='sga.Percentage_national_budget_allocated_to_education'}}
-          {{> afQuickField name='sga.Percentage_GDP_allocated_to_education'}}
-          {{> afQuickField name='sga.Existence_of_EMIS'}}
-          {{> afQuickField name='sga.Percentage_qualified_personnel_to_operate_EMIS'}}
-          {{> afQuickField name='sga.PEDF_aligned_with_national_ME_system'}}
-          {{> afQuickField name='sga.National_annual_education_statistics_report'}}
-          {{> afQuickField name='sga.Existence_of_communication_strategy_to_support_education_outcomes'}}
-          {{> afQuickField name='sga.Reduction_in_irregularities_to_assure_transparency_and_accountability'}}
-        {{/formSection}}
-
-        <button type="submit" class="btn btn-primary">Save Data</button>
-      </div>
-    {{/autoForm}}
-
-  </div>
-</template>
-
-<template name="formSection">
-  <div class="panel panel-default">
-      <div class="panel-heading">
-          <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#{{this.id}}">{{this.heading}}</a>
-          </h4>
-      </div>
-      <div id="{{this.id}}" class="panel-collapse collapse">
-          <div class="panel-body">
-            <fieldset>
-              {{> UI.contentBlock}}
-            </fieldset>
-          </div>
-      </div>
+    {{#if $.Session.get 'edit-mode'}}
+      {{#if currentUser}}
+        {{> EditForm}}
+      {{/if}}
+    {{else}}
+      {{> Profile}}
+    {{/if}}
   </div>
 </template>
