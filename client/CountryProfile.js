@@ -1,7 +1,10 @@
 Template.CountryProfile.helpers({
   data: ()=> {
     var country = FlowRouter.getParam('country');
-    return {country: country}
+    return {
+      country: country
+      
+    }
   },
 });
 
